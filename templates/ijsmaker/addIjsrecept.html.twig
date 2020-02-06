@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% block nav %}{% include 'navbar.html.twig' %}{% endblock %}
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm">
+                <h1>Ijsrecept Toevoegen</h1>
+                <br><br><br>
+               {{ form(form) }}
+            </div>
+            <div class="col-sm-1">
+            </div>
+
+
+            {% block footer %}
+                <footer class="page-footer font-small blue fixed-bottom ">
+
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">© 2020 Copyright: Mehmet Yildiz
+                    </div>
+                    <!-- Copyright -->
+
+                </footer>
+
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block nav %}{% include 'navbar.html.twig' %}{% endblock %}
+    <h1>Register</h1>
+
+    {{ form_start(registrationForm) }}
+    {{ form_row(registrationForm.email) }}
+    {{ form_row(registrationForm.plainPassword) }}
+    {{ form_row(registrationForm.agreeTerms) }}
+
+    <button class="btn btn-lg btn-primary">Register</button>
+    {{ form_end(registrationForm) }}
+    {% block footer %}
+        <footer class="page-footer font-small blue fixed-bottom ">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright: Mehmet Yildiz
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+
+    {% endblock %}
+{% endblock %}

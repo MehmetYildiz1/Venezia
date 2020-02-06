@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% block nav %}{% include 'navbar.html.twig' %}{% endblock %}
+    <br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Openingstijden</h1>
+                <p>April t/m Oktober:<br>
+                * Alle dagen 10.00 - 20.00 uur<br>
+                * Zomervakantie tot 21.00 uur<br>
+
+                November t/m Maart:<br>
+                    * Alle dagen 10.00 - 18.00 uur</p>
+
+
+            </div>
+            <div class="col-sm">
+{#                <h1>Welkom bij Venezia.</h1>#}
+
+{#                <p>Een frisse, vrolijke ijssalon met een vleugje glamour waar je het beste en lekkerste#}
+{#                    ijs van Amsterdam kan halen, gemaakt door meester ijsbereider (hoogste graad van vakbekwaamheid in ijs) Luc Blok.#}
+{#                    Probeer naast ons uitgebreide ijsassortiment ook eens onze andere ijs-lekkernijen#}
+{#                    zoals een scroppino, een ijsshake of ijskoffie. Wil je liever genieten van een stevige#}
+{#                    espresso op ons gezellige terras? Ook dat is mogelijk (uiteraard serveren wij deze met een mini ijs hoorntje!)</p>#}
+            </div>
+            <div class="col-sm">
+                <h1>Contact</h1>
+                <p>Adres<br>
+                Hambroekweg 6<br>
+                7271 NA Borculo<br>
+                E-mail<br>
+                info@ijsboerderijdommerholt.nl<br>
+                Telefoon<br>
+                    0545 271833</p>
+            </div>
+
+
+            {% block footer %}
+                <footer class="page-footer font-small blue fixed-bottom ">
+
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">© 2020 Copyright: Mehmet Yildiz
+                    </div>
+                    <!-- Copyright -->
+
+                </footer>
+
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
