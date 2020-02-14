@@ -66,4 +66,27 @@ class BezoekerController extends AbstractController
         return $this->render('bezoeker/ijsAanbod.html.twig', ['ijsrep' => $ijsrep]);
     }
 
+    /**
+     * @Route("/product/{id}")
+     */
+    public function update($id)
+    {
+
+        $product = $this->getDoctrine()->
+        getRepository(Product::class)->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($product);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('product_show', [
+            'id' => $product->getId()
+        ]);
+    }
+
 }

@@ -21,32 +21,34 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('ijs_show') }}">IJs Lijst</a>
                 </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('ijsrep_toev') }}">IJsrecept Toevoegen</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('ijsrep_toev') }}">IJsrecept Toevoegen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('bestelregel_list') }}">Bestelregel Lijst</a>
+                </li>
                 {% endif %}
             </ul>
             <ul class="navbar-nav mt-2 mt-lg-0">
                 {% if app.user %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
-                </li>
+                    <form method="get"  action="/logout">
+                        <button class="btn btn-lg btn-primary" type="submit">Logout</button>
+                    </form>
                     &nbsp&nbsp&nbsp&nbsp
                 {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_register') }}">Registreren</a>
-                </li>
+                    <form method="get"  action="/register">
+                        <button class="btn btn-lg btn-primary" type="submit">Register</button>
+                    </form>
                     &nbsp;&nbsp;&nbsp;
-                <li class="nav-item">
-                    <a  class="nav-link" href="{{ path('app_login') }}">Login</a>
-                </li>
+                    <form method="get"  action="/login">
+                    <button class="btn btn-lg btn-primary" type="submit">Login</button>
+                </form>
                 {% endif %}
             </ul>
         </div>
     </nav>
     <div class="card mb-3">
-        <img src="img/ijsss.jpg" class="card-img-top img" alt="...">
+    <img class="card-img-top img" style="height: 350px;" src="{{ asset('img/ijsss.jpg') }}">
         <div class="card-body">
         </div>
 

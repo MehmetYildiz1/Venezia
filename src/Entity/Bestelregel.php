@@ -31,6 +31,11 @@ class Bestelregel
      */
     private $Ijsrecept;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="Bestelregel")
+     */
+    private $User;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Bestelregel
     public function setIjsrecept(?Ijsrecept $Ijsrecept): self
     {
         $this->Ijsrecept = $Ijsrecept;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }

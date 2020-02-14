@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -34,6 +36,26 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $naam;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $telefoon;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Bestelregel", mappedBy="User")
+     */
+    private $Bestelregel;
+
+    public function __construct()
+    {
+        $this->Bestelregel = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -111,5 +133,60 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getNaam(): ?string
+    {
+        return $this->naam;
+    }
+
+    public function setNaam(string $naam): self
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    public function getTelefoon(): ?string
+    {
+        return $this->telefoon;
+    }
+
+    public function setTelefoon(string $telefoon): self
+    {
+        $this->telefoon = $telefoon;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Bestelregel[]
+     */
+    public function getBestelregel(): Collection
+    {
+        return $this->Bestelregel;
+    }
+
+    public function addBestelregel(Bestelregel $bestelregel): self
+    {
+        if (!$this->Bestelregel->contains($bestelregel)) {
+            $this->Bestelregel[] = $bestelregel;
+            $bestelregel->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBestelregel(Bestelregel $bestelregel): self
+    {
+        if ($this->Bestelregel->contains($bestelregel)) {
+            $this->Bestelregel->removeElement($bestelregel);
+            // set the owning side to null (unless already changed)
+            if ($bestelregel->getUser() === $this) {
+                $bestelregel->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

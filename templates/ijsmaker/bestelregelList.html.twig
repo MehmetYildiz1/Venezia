@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% block nav %}{% include 'navbar.html.twig' %}{% endblock %}
+    <br><br><br><br>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Aaantal</th>
+            <th scope="col">Datum</th>
+            <th scope="col">IJs soort</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for a in bestelreg %}
+            <tr>
+                <th scope="row">{{ a.id }}</th>
+                <td>{{ a.aantal }}</td>
+                <td>{{ a.afleverdatum|date("m/d/Y") }}</td>
+                <td>{{ a.ijsrecept.naam }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+{#                    <td><a href="{{ path('delete', {'id': a.id}) }}"><button>Delete</button></a></td>#}
+{#                    <td><a href="{{ path('update_ijsrep', {'id': a.id}) }}"><button>Update</button></a></td>#}
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% block footer %}
+        <footer class="page-footer font-small blue fixed-bottom ">
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright: Mehmet Yildiz
+            </div>
+            <!-- Copyright -->
+
+        </footer>
+
+    {% endblock %}
+    </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

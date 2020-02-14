@@ -3,7 +3,7 @@
 
 {% block body %}
     {% block nav %}{% include 'navbar.html.twig' %}{% endblock %}
-    <br><br><br><br>
+
 
     <table class="table">
         <tbody>
@@ -14,6 +14,10 @@
         <div class="row">
             <div class="col-sm">
 
+                {% for a in ijsrep %}
+                    <br><td>{{ a.naam }}</td>
+                    <td>€{{ a.kosten }}</td>
+                {% endfor %}
             </div>
             <div class="col-sm">
                 <h1>IJs Smaken</h1>
@@ -23,6 +27,10 @@
                 {% endfor %}
             </div>
             <div class="col-sm">
+                {% for a in ijsrep %}
+                    <br><td>{{ a.naam }}</td>
+                    <td>€{{ a.kosten }}</td>
+                {% endfor %}
             </div>
 
     {% block footer %}
